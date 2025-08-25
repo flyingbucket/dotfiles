@@ -1,0 +1,6 @@
+[mgr]
+prepend_keymap = [
+  { on = "+", run = "plugin zoom 1", desc = "预览放大" },
+  { on = "-", run = "plugin zoom -1", desc = "预览缩小" },
+  { on = "0", run = "plugin zoom 0", desc = "预览重置" },
+]

@@ -1,0 +1,16 @@
+[mgr]
+ratio = [1, 2, 3]
+
+
+[preview]
+max_width = 160000
+max_height = 160000
+image_filter = "lanczos3"
+
+[[plugin.prepend_previewers]]
+mime = "image/{jpeg,png,webp}"
+run = "zoom 15"
+
+[[previewers]]
+name = "archive"
+enable = true
