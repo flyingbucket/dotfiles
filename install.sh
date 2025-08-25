@@ -7,7 +7,7 @@ if [ "$(pwd)" != "$DOTFILES_DIR" ]; then
   exit 1
 fi
 
-# 安装 tmux 配置
+# tmux
 echo "Installing .tmux.conf for tmux..."
 if [ -f "$HOME/.tmux.conf" ]; then
   echo "~/.tmux.conf exists,skip..."
@@ -15,8 +15,9 @@ else
   ln -s "$DOTFILES_DIR/.tmux.conf" "$HOME/.tmux.conf"
   echo "symbolink for ~/.tmux.conf created"
 fi
+echo
 
-# 安装 starship 配置
+# starship
 echo "Installing starship.toml for starship..."
 if [ -f "$HOME/.config/starship.toml" ]; then
   echo "~/.config/starship.toml exits ,skip..."
@@ -25,25 +26,48 @@ else
   ln -s "$DOTFILES_DIR/starship.toml" "$HOME/.config/starship.toml"
   echo "symbolonk for ~/.config/starship.toml created"
 fi
+echo
 
-# 安装 wezterm 配置
+# nvim
+echo "Installing nvim configs..."
+if [ -d "$HOME/.config/nvim" ]; then
+  echo "~/.config/nvim exists as a directory, skip..."
+elif [ -f "$HOME/.config/nvim" ]; then
+  echo "~/.config/nvim exists as a file, skip..."
+elif [ -L "$HOME/.config/nvim" ]; then
+  echo "~/.config/nvim is already a symlink, skip..."
+else
+  ln -s "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
+  echo "symbolink for ~/.config/nvim created"
+fi
+echo
+
+# wezterm
 echo "Installing wezterm configs..."
 if [ -d "$HOME/.config/wezterm" ]; then
-  echo "~/.config/wezterm exists,skip..."
+  echo "~/.config/wezterm exists as a directory, skip..."
+elif [ -f "$HOME/.config/wezterm" ]; then
+  echo "~/.config/wezterm exists as a file, skip..."
+elif [ -L "$HOME/.config/wezterm" ]; then
+  echo "~/.config/wezterm is already a symlink, skip..."
 else
-  mkdir -p "$HOME/.config/wezterm"
   ln -s "$DOTFILES_DIR/wezterm" "$HOME/.config/wezterm"
   echo "symbolink for ~/.config/wezterm created"
 fi
+echo
 
-# 安装其他配置文件（例如 yazi）
+# yazi
 echo "Installing yazi configs..."
 if [ -d "$HOME/.config/yazi" ]; then
-  echo "~/.config/yazi exists,skip..."
+  echo "~/.config/yazi exists as a directory, skip..."
+elif [ -f "$HOME/.config/yazi" ]; then
+  echo "~/.config/yazi exists as a file, skip..."
+elif [ -L "$HOME/.config/yazi" ]; then
+  echo "~/.config/yazi is already a symlink, skip..."
 else
-  mkdir -p "$HOME/.config/yazi"
   ln -s "$DOTFILES_DIR/yazi" "$HOME/.config/yazi"
   echo "symbolink for ~/.config/yazi created"
 fi
+echo
 
 echo "All done successfully！"
