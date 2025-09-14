@@ -9,6 +9,7 @@ return {
 	default_cursor_style = "BlinkingUnderline", -- 设置光标样式
 	enable_tab_bar = true,
 	enable_wayland = true,
+	-- font = wezterm.font("JetBrainsMono Nerd Font"),
 	font_size = 15.0, -- 设置字体大小
 	leader = { key = "a", mods = "CTRL" }, -- 设置快捷键
 	keys = {
