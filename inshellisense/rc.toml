@@ -1,0 +1,32 @@
+[bindings.acceptSuggestion]
+key = "tab"
+# shift and ctrl are optional and default to false
+shift = false
+ctrl = false
+
+# [bindings.nextSuggestion]
+# key = "]"
+# ctrl = true
+# shift = false
+#
+# [bindings.previousSuggestion]
+# key = "["
+# ctrl = true
+# shift = false
+
+[bindings.showSuggestions]
+key = "space"
+# alt = true
+ctrl = true
+shift = false
+
+[bindings.nextSuggestion]
+key = "down"
+
+[bindings.previousSuggestion]
+key = "up"
+
+[bindings.dismissSuggestions]
+key = "escape"
+
+useNerdFont = true
