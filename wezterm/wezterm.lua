@@ -8,7 +8,8 @@ return {
 	cursor_blink_ease_out = "Constant", -- 禁用渐出动画
 	default_cursor_style = "BlinkingUnderline", -- 设置光标样式
 	enable_tab_bar = true,
-	enable_wayland = true,
+	window_decorations = "NONE",
+	enable_wayland = false,
 	-- font = wezterm.font("JetBrainsMono Nerd Font"),
 	font_size = 15.0, -- 设置字体大小
 	leader = { key = "a", mods = "CTRL" }, -- 设置快捷键
