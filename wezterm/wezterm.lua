@@ -79,5 +79,5 @@ return {
 		{ key = "x", mods = "LEADER", action = wezterm.action({ CloseCurrentPane = { confirm = true } }) },
 	},
 
-	window_background_opacity = 0.75, -- 设置窗口透明度
+	-- window_background_opacity = 0.75, -- 设置窗口透明度
 }
