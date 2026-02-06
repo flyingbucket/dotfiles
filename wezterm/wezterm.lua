@@ -2,7 +2,41 @@ local wezterm = require("wezterm")
 --
 return {
 	max_fps = 180,
-	color_scheme = "GruvboxDarkHard",
+	-- color_scheme = "GruvboxDarkHard",
+	color_scheme = "TD Metal (Archspire)",
+	color_schemes = {
+		["TD Metal (Archspire)"] = {
+			foreground = "#d4d1c8",
+			background = "#000000",
+			cursor_bg = "#9ad4a8",
+			cursor_fg = "#000000",
+
+			selection_bg = "#2a2a2a",
+			selection_fg = "#c1c1c1",
+			ansi = {
+				"#000000", -- 0
+				"#63b0b0", -- 1
+				"#c3cf88", -- 2
+				"#d7e27a", -- 3
+				"#6f9bc9", -- 4
+				"#b4a6d6", -- 5
+				"#8fd0d0", -- 6
+				"#d6d6d6", -- 7
+			},
+
+			brights = {
+				"#555555", -- 8
+				"#79c6c6", -- 9
+				"#9ad4a8", -- 10
+				"#e5f08f", -- 11
+				"#90b4e6", -- 12
+				"#cbbaf2", -- 13
+				"#b2e6e6", -- 14
+				"#f2f2f2", -- 15
+			},
+		},
+	},
+
 	cursor_blink_rate = 500,
 	cursor_blink_ease_in = "Constant", -- 禁用渐入动画
 	cursor_blink_ease_out = "Constant", -- 禁用渐出动画
@@ -10,7 +44,7 @@ return {
 	enable_tab_bar = true,
 	window_decorations = "NONE",
 	enable_wayland = false,
-	-- font = wezterm.font("JetBrainsMono Nerd Font"),
+	font = wezterm.font("JetBrainsMono Nerd Font"),
 	font_size = 15.0, -- 设置字体大小
 	leader = { key = "a", mods = "CTRL" }, -- 设置快捷键
 	keys = {
@@ -78,6 +112,4 @@ return {
 		{ key = "d", mods = "LEADER", action = wezterm.action({ CloseCurrentPane = { confirm = true } }) },
 		{ key = "x", mods = "LEADER", action = wezterm.action({ CloseCurrentPane = { confirm = true } }) },
 	},
-
-	-- window_background_opacity = 0.75, -- 设置窗口透明度
 }
