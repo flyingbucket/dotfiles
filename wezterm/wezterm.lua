@@ -7,7 +7,8 @@ return {
 	color_schemes = {
 		["TD Metal (Archspire)"] = {
 			foreground = "#d4d1c8",
-			background = "#000000",
+			-- background = "#000000",
+			background = "#070b12",
 			cursor_bg = "#9ad4a8",
 			cursor_fg = "#000000",
 
