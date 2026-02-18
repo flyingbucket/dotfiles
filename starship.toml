@@ -202,6 +202,9 @@ symbol = " "
 [ocaml]
 symbol = " "
 
+[os]
+disabled = false
+
 [os.symbols]
 Alpaquita = " "
 Alpine = " "
@@ -278,6 +281,9 @@ symbol = "󱘗 "
 
 [scala]
 symbol = " "
+detect_files = ["build.sbt", ".scalafmt.conf", "build.sc"]
+detect_folders = ["project"]
+detect_extensions = ["scala", "sc"]
 
 [swift]
 symbol = " "
