@@ -52,7 +52,7 @@ return {
 	window_decorations = "NONE",
 	enable_wayland = false,
 	font = wezterm.font("JetBrainsMono Nerd Font"),
-	font_size = 12.5, -- 设置字体大小
+	font_size = 15, -- 设置字体大小
 	leader = { key = "a", mods = "CTRL" }, -- 设置快捷键
 	keys = {
 		{
