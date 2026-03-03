@@ -1,20 +1,20 @@
 local wezterm = require("wezterm")
 local mux = wezterm.mux
--- 1. 引入配色模块
-local colors = require("colors.TD-metal-archspire")
+
 local config = wezterm.config_builder()
 
--- 基础启动配置
+-- maximize the window on startup
 wezterm.on("gui-startup", function(cmd)
 	local tab, pane, window = mux.spawn_window(cmd or {})
 	window:gui_window():maximize()
 end)
 
--- 2. 应用配色
+-- color scheme settings
+local colors = require("colors.metals")
 config.color_scheme = "TD Metal (Archspire)"
 config.color_schemes = colors.schemes
 
--- 其他常规设置
+-- other settings
 config.max_fps = 180
 config.cursor_blink_rate = 500
 config.cursor_blink_ease_in = "Constant"
@@ -25,16 +25,15 @@ config.window_decorations = "NONE"
 config.enable_wayland = false
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 config.font_size = 15
-config.leader = { key = "a", mods = "CTRL" }
 
--- 快捷键设置
+-- key bindings
+config.leader = { key = "a", mods = "CTRL" }
 config.keys = {
-	-- ... 这里保持你原本的 keys 列表不变 ...
 	{
 		key = "W",
 		mods = "LEADER",
 		action = wezterm.action.PromptInputLine({
-			description = "Enter workspace name",
+			description = "Create workspace:Enter workspace name",
 			action = wezterm.action_callback(function(window, pane, line)
 				if line and #line > 0 then
 					window:perform_action(wezterm.action.SwitchToWorkspace({ name = line }), pane)
