@@ -15,6 +15,7 @@ window-rule {
     match app-id="^vlc$"
     match app-id=r#"^org\.gnome\.Showtime$"#
     match app-id=r#"^org\.gnome\.Louts$"#
+    match app-id=r#"^org\.gnome\.Evince$"#
     
     opacity 1.0
 }
