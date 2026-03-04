@@ -24,7 +24,8 @@ config.enable_tab_bar = true
 config.window_decorations = "NONE"
 config.enable_wayland = false
 config.font = wezterm.font("JetBrainsMono Nerd Font")
-config.font_size = 15
+config.font_size = 12.5
+config.leader = { key = "a", mods = "CTRL" }
 
 -- key bindings
 config.leader = { key = "a", mods = "CTRL" }
