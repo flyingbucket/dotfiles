@@ -1,0 +1,27 @@
+// opacity config
+window-rule {
+    opacity 0.85
+}
+
+// opcity blacklist
+window-rule {
+    // browser
+    match app-id="^firefox$"
+    match app-id="^google-chrome$"
+    match app-id="^chrome-" 
+    
+    // vidoeplayer and imageveiwer
+    match app-id="^mpv$"
+    match app-id="^vlc$"
+    match app-id=r#"^org\.gnome\.Showtime$"#
+    match app-id=r#"^org\.gnome\.Louts$"#
+    match app-id=r#"^org\.gnome\.Evince$"#
+    
+    opacity 1.0
+}
+
+// disable transparent for floatting window
+window-rule {
+    match is-floating=true
+    opacity 1.0
+}
