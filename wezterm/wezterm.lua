@@ -3,16 +3,14 @@ local mux = wezterm.mux
 
 local config = wezterm.config_builder()
 
--- maximize the window on startup
-wezterm.on("gui-startup", function(cmd)
-	local tab, pane, window = mux.spawn_window(cmd or {})
-	window:gui_window():maximize()
-end)
-
 -- color scheme settings
 local colors = require("colors.metals")
 config.color_scheme = "TD Metal (Archspire)"
 config.color_schemes = colors.schemes
+
+-- rendering method
+config.front_end = "WebGpu"
+config.webgpu_power_preference = "HighPerformance"
 
 -- other settings
 config.max_fps = 180
