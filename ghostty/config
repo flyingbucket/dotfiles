@@ -2,10 +2,11 @@
 font-size = 12
 
 # Window Configuration
-window-decoration = false
+window-decoration = true
 window-padding-x = 12
 window-padding-y = 12
-background-opacity = 1.0
+background-opacity = 0.8
+background-blur= 20
 background-blur-radius = 32
 
 # Cursor Configuration
@@ -20,16 +21,6 @@ mouse-hide-while-typing = true
 copy-on-select = false
 confirm-close-surface = false
 
-# Disable annoying copied to clipboard
-app-notifications = no-clipboard-copy,no-config-reload
-
-
-
-
-# Material 3 UI elements
-unfocused-split-opacity = 0.7
-unfocused-split-fill = #44464f
-
 # Tab configuration
 gtk-titlebar = false
 
@@ -38,16 +29,17 @@ shell-integration = detect
 shell-integration-features = cursor,sudo,title,no-cursor
 keybind = shift+enter=text:\n
 
+# auto attach to tmux
+command = bash -c "tmux new-session ; exec bash"
+
 # Rando stuff
 gtk-single-instance = true
 
-# Dank color generation
 theme = metal-archspire
 
 
 #key bindings
 # 使用 Ctrl+a 作为 leader key
-
 # Pane 分割
 keybind = ctrl+a>\=new_split:right
 keybind = ctrl+a>-=new_split:down
