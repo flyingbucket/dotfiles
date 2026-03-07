@@ -25,3 +25,11 @@ window-rule {
     match is-floating=true
     opacity 1.0
 }
+
+// set terminal column width to 1.0 on startup
+window-rule {
+    match app-id="wezterm"
+    match app-id="ghostty"
+    match app-id="alacritty"
+    default-column-width { proportion 1.0; }
+}
