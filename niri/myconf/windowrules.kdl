@@ -17,6 +17,9 @@ window-rule {
     match app-id=r#"^org\.gnome\.Louts$"#
     match app-id=r#"^org\.gnome\.Evince$"#
     
+    // games
+    match app-id="^steam$"
+    match app-id="^rockstar$"
     opacity 1.0
 }
 
