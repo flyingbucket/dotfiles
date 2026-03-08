@@ -20,6 +20,9 @@ window-rule {
     // games
     match app-id="^steam$"
     match app-id="^rockstar$"
+    
+    // R plot window
+    match app-id="R_x11"
     opacity 1.0
 }
 
@@ -27,6 +30,13 @@ window-rule {
 window-rule {
     match is-floating=true
     opacity 1.0
+}
+
+window-rule {
+    match app-id="R_x11"
+    open-floating false
+    default-column-width { fixed 600; }
+    default-window-height { fixed 600; }
 }
 
 // set terminal column width to 1.0 on startup
