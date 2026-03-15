@@ -1,3 +1,4 @@
+// ====== general config ======
 // opacity config
 window-rule {
     opacity 0.85
@@ -32,6 +33,9 @@ window-rule {
     opacity 1.0
 }
 
+
+//====== applications ======
+// R_x11 default graphix viwer
 window-rule {
     match app-id="R_x11"
     open-floating false
@@ -39,6 +43,11 @@ window-rule {
     default-window-height { fixed 600; }
 }
 
+// set gnome nautilus to tile
+window-rule{
+    match app-id="org.gnome.Nautilus"
+    open-floating false
+}
 // set terminal column width to 1.0 on startup
 window-rule {
     match app-id="wezterm"
