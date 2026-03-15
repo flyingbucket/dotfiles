@@ -251,10 +251,10 @@ window-rule {
     open-floating true
 }
 // Open dms windows as floating by default
-window-rule {
-    match app-id=r#"org.quickshell$"#
-    open-floating true
-}
+// window-rule {
+//     match app-id=r#"org.quickshell$"#
+//     open-floating false
+// }
 debug {
     honor-xdg-activation-with-invalid-serial
 }
