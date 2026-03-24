@@ -1,0 +1,54 @@
+{
+    "layer": "bottom",
+    "position": "left",
+
+    // 悬浮设置
+    "exclusive": false,
+    "passthrough": false,
+    "fixed-center": false,
+
+    // 位置与大小控制
+    "margin-top": 100,
+    "margin-left": 50,
+    "margin-bottom": 600, 
+    "width": 350,
+    
+    // 模块排列
+    "modules-left": [
+        "custom/title", 
+        "custom/cpu_freq",
+        "temperature", 
+        "custom/fan", 
+        "custom/power"
+    ],
+
+    // --- 各模块具体配置 ---
+
+    "custom/title": {
+        "format": "SYSTEM MONITOR",
+        "tooltip": false
+    },
+
+    "custom/cpu_freq": {
+        "exec": "awk '/cpu MHz/ {sum+=$4; count++} END {printf \"%.2f GHz\", sum/count/1000}' /proc/cpuinfo",
+        "format": "Frequency    {}",
+        "interval": 1
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "Temperature  {temperatureC}°C"
+    },
+
+    "custom/fan": {
+        "exec": "cat /proc/acpi/ibm/fan | grep speed | awk '{print $2}'",
+        "format": "Fan Speed    {} RPM",
+        "interval": 1,
+        "return-type": ""
+    },
+    "custom/power": {
+        "exec": "echo \"scale=1; $(cat /sys/class/power_supply/BAT0/power_now) / 1000000\" | bc",
+        "format": "Power Usage  {} W",
+        "interval": 2
+    }
+}
+

@@ -1,0 +1,23 @@
+window#waybar {
+    background: rgba(25, 25, 25, 0.65); /* 深灰透明 */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    color: #e0e0e0;
+    font-family: "Inter", sans-serif;
+    padding: 20px;
+}
+
+#custom-title {
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+/* 让每一行左右对齐 */
+#cpu, #temperature, #custom-fan, #power-profiles-daemon {
+    font-size: 15px;
+    padding: 5px 0;
+    /* Waybar 模块可以通过 margin 模拟间距 */
+}

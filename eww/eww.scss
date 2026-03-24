@@ -1,0 +1,30 @@
+window {
+  background-color: transparent;
+}
+
+.main-container {
+  background-color: rgba(20, 20, 20, 0.6); 
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px; /* 圆角加大 */
+  padding: 25px;
+  color: #e0e0e0;
+  font-family: sans-serif;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: #ffffff;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-row {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.value {
+  color: #50fa7b;
+  font-weight: bold;
+}

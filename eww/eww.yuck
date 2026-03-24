@@ -1,0 +1,29 @@
+;; --- 数据获取保持不变 ---
+(defpoll cpu_temp :interval "1s" "sensors | grep 'Package id 0' | awk '{print $4}' | tr -d '+'")
+(defpoll cpu_freq :interval "1s" "awk '/cpu MHz/ {sum+=$4; count++} END {printf \"%.0f MHz\", sum/count}' /proc/cpuinfo")
+(defpoll fan_speed :interval "1s" "cat /proc/acpi/ibm/fan | grep speed | awk '{print $2}'")
+(defpoll power_w :interval "2s" "echo \"scale=1; $(cat /sys/class/power_supply/BAT0/power_now) / 1000000\" | bc")
+
+;; --- 窗口布局修改 ---
+(defwindow monitor
+  :monitor 0
+  :stacking "fg"
+  :windowtype "normal"
+  :wm-ignore false
+  :geometry (geometry :x "10%"      ;; 距离左边 10%
+                      :y "15%"      ;; 距离顶部 15%
+                      :width "350px" ;; 窗口调大
+                      :height "200px" 
+                      :anchor "top left") ;; 锚点改为左上
+  (content))
+
+;; --- UI 结构修改 (去掉图标) ---
+(defwidget content []
+  (box :class "main-container" :orientation "v" :space-evenly true
+    (label :class "title" :text "SYSTEM MONITOR")
+    (box :class "stat-row" (label :text "Temperature") (label :class "value" :text cpu_temp))
+    (box :class "stat-row" (label :text "Frequency") (label :class "value" :text cpu_freq))
+    (box :class "stat-row" (label :text "Fan Speed") (label :class "value" :text "${fan_speed} RPM"))
+    (box :class "stat-row" (label :text "Power Usage") (label :class "value" :text "${power_w} W"))
+  )
+)
