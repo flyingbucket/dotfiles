@@ -157,16 +157,6 @@ blur {
     saturation 1.5  // 增加模糊区域的色彩饱和度，让透出的颜色更鲜艳。
 }
 
-layer-rule {
-    match namespace="^quickshell$"
-    // place-within-backdrop true
-    background-effect {
-        blur true
-        xray true     // 建议开启 xray，性能最好
-        noise 0.02    // 也可以在这里单独微调
-        saturation 1.5
-    }
-}
 overview {
     workspace-shadow {
         off
@@ -297,3 +287,4 @@ include "dms/cursor.kdl"
 // Include user difined config files
 include "myconf/binds.kdl"
 include "myconf/windowrules.kdl"
+include "myconf/layerrules.kdl"

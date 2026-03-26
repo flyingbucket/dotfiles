@@ -1,0 +1,24 @@
+layer-rule {
+    match namespace="^quickshell$"
+    place-within-backdrop true
+    background-effect {
+      blur false
+    }
+}
+
+layer-rule {
+    match namespace="launcher" // 请确认为具体的名称
+    opacity 0.8
+    background-effect {
+        blur true
+        xray false 
+    }
+}
+// 如果你使用了 DMS 的 Launcher（通常也是一个 quickshell 实例）
+layer-rule {
+    match namespace="dms:spotlight" // 请确认为具体的名称
+    background-effect {
+        blur true
+        xray false
+    }
+}
