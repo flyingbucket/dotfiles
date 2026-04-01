@@ -15,37 +15,50 @@ layer-rule {
     }
 }
 layer-rule {
-    match namespace="dms:*"
-    background-effect {
-        blur true
-        xray false
-    }
-}
-layer-rule {
-    match namespace="^dms:.*:background"
-    background-effect {
-        blur false
-        xray false
-    }
-}
-layer-rule{
-  match namespace="dms:tray-menu-window"
-  background-effect{
-    blur false
+  match namespace=".*"
+  background-effect {
     xray false
   }
 }
-layer-rule {
-    match namespace="dms:dock"
-    background-effect {
-        blur false
-        xray false
-    }
-}
-layer-rule{
-  match namespace="dms:niri*"
-  background-effect{
-    blur false
-    xray false
-  }
-}
+
+// layer-rule {
+//     match namespace="dms:*"
+//     background-effect {
+//         blur true
+//         xray false
+//     }
+// }
+// layer-rule {
+//     match namespace="^dms:.*:background"
+//     background-effect {
+//         blur false
+//         xray false
+//     }
+// }
+// // layer-rule {
+// //     match namespace="dms:bar"
+// //     background-effect {
+// //       blur false
+// //     }
+// // }
+// layer-rule{
+//   match namespace="dms:tray-menu-window"
+//   background-effect{
+//     blur false
+//     xray false
+//   }
+// }
+// layer-rule {
+//     match namespace="dms:dock"
+//     background-effect {
+//         blur false
+//         xray false
+//     }
+// }
+// layer-rule{
+//   match namespace="dms:niri*"
+//   background-effect{
+//     blur false
+//     xray false
+//   }
+// }

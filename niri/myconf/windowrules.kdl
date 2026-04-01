@@ -12,8 +12,8 @@ window-rule {
 window-rule {
     // browser
     match app-id="^firefox$"
-    match app-id="^google-chrome$"
-    match app-id="^chrome-" 
+    // match app-id="Google-chrome"
+    match app-id="^*-chrome$" 
     
     // vidoeplayer and imageveiwer
     match app-id="^mpv$"
