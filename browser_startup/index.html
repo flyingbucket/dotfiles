@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Start Page</title>
+    <style>
+        :root { --bg: #1e1e2e; --fg: #cdd6f4; --accent: #89b4fa; }
+        body { 
+            background: var(--bg); color: var(--fg); 
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            display: flex; flex-direction: column; align-items: center; 
+            justify-content: center; height: 100vh; margin: 0; 
+        }
+        /* 时间部分 */
+        #clock { font-size: 6rem; font-weight: 700; color: var(--accent); margin-bottom: 0.5rem; }
+        #date { font-size: 1.2rem; opacity: 0.6; margin-bottom: 3rem; }
+
+        /* 搜索框部分 */
+        .search-group { width: 40%; min-width: 400px; position: relative; }
+        input {
+            width: 100%; padding: 15px 20px; border: 2px solid #45475a;
+            border-radius: 8px; background: #313244; color: var(--fg);
+            font-size: 1.1rem; outline: none; transition: 0.3s;
+        }
+        input:focus { border-color: var(--accent); box-shadow: 0 0 15px rgba(137, 180, 250, 0.2); }
+        
+        .hints { margin-top: 15px; font-size: 0.9rem; opacity: 0.4; }
+        kbd { background: #45475a; padding: 2px 6px; border-radius: 4px; color: var(--accent); }
+    </style>
+</head>
+<body>
+
+    <div id="clock">00:00</div>
+    <div id="date">Loading...</div>
+
+    <div class="search-group">
+        <input type="text" id="q" placeholder="Search with Google..." autocomplete="off">
+        <div class="hints">Press <kbd>Enter</kbd> to Search | Use <kbd>gi</kbd> to Focus</div>
+    </div>
+
+    <script>
+        // 1. 实时时钟逻辑
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('clock').textContent = 
+                now.getHours().toString().padStart(2, '0') + ':' + 
+                now.getMinutes().toString().padStart(2, '0');
+            
+            const options = { weekday: 'long', month: 'long', day: 'numeric' };
+            document.getElementById('date').textContent = now.toLocaleDateString('zh-CN', options);
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        // 2. 搜索逻辑 (按下回车跳转)
+        const searchInput = document.getElementById('q');
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && searchInput.value.trim() !== '') {
+                const query = encodeURIComponent(searchInput.value);
+                // 你可以根据习惯修改搜索引擎地址
+                window.location.href = `https://www.google.com/search?q=${query}`;
+            }
+        });
+
+    </script>
+</body>
+</html>
