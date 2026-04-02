@@ -1,7 +1,7 @@
 // ====== general config ======
 // opacity config
 window-rule {
-    opacity 0.85
+    opacity 0.75
     background-effect {
         blur true
         xray true
