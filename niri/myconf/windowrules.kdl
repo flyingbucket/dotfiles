@@ -1,7 +1,7 @@
 // ====== general config ======
 // opacity config
 window-rule {
-    opacity 0.75
+    opacity 0.85
     background-effect {
         blur true
         xray true
@@ -31,6 +31,9 @@ window-rule {
 
     // Rnote
     match app-id="com.github.flxzt.rnote"
+
+    // bilibili
+    match app-id="bilibili"
     opacity 1.0
 }
 
