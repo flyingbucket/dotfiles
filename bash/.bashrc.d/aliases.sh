@@ -1,3 +1,4 @@
+alias ll='ls -lhF' 2>/dev/null
 alias mount_a30='sshfs flyingbucket@A30:/home/flyingbucket /mnt/A30 -o allow_other,uid=1000,gid=1000,reconnect,cache=no'
 alias loadconda='source ~/miniconda3/etc/profile.d/conda.sh'
 alias r='radian'
