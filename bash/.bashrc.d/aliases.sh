@@ -3,3 +3,4 @@ alias mount_a30='sshfs flyingbucket@A30:/home/flyingbucket /mnt/A30 -o allow_oth
 alias loadconda='source ~/miniconda3/etc/profile.d/conda.sh'
 alias r='radian'
 alias texInit='bash ~/CODE/scripts/texInit.sh'
+alias rnvim='$HOME/CODE/scripts/rnvim'
