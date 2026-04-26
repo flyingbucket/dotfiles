@@ -63,5 +63,6 @@ window-rule {
     match app-id="wezterm"
     match app-id="ghostty"
     match app-id="alacritty"
+    match app-id="neovide"
     default-column-width { proportion 1.0; }
 }
