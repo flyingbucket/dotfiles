@@ -15,7 +15,7 @@ wsl = false
 # x11-wm-class-instance = "neovide"
 
 [font]
-normal = ["JetBrains Mono"]
+normal = { family = "JetBrainsMono Nerd Font Mono", style = "Regular" }
 size = 14.0
 
 [box-drawing]
