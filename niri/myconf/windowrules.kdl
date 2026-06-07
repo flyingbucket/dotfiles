@@ -21,6 +21,7 @@ window-rule {
     match app-id=r#"^org\.gnome\.Showtime$"#
     match app-id=r#"^org\.gnome\.Louts$"#
     match app-id=r#"^org\.gnome\.Evince$"#
+    match app-id="org.pwmt.zathura"
     
     // games
     match app-id="^steam$"
