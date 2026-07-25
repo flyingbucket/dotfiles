@@ -1,8 +1,16 @@
-# starship
-eval "$(starship init bash)"
+# --- CLI Tools Initialization ---
 
-# Set up fzf key bindings and fuzzy completion
-eval "$(fzf --bash)"
+# Starship
+if command -v starship &>/dev/null; then
+  eval "$(starship init bash)"
+fi
+
+# fzf
+# if command -v fzf &>/dev/null; then
+# eval "$(fzf --bash)"
+# fi
 
 # thefuck
-eval "$(thefuck --alias)"
+if command -v thefuck &>/dev/null; then
+  eval "$(thefuck --alias)"
+fi

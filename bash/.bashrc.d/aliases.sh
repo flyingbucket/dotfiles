@@ -1,6 +1,17 @@
 alias ll='ls -lhF' 2>/dev/null
-alias mount_a30='sshfs flyingbucket@A30:/home/flyingbucket /mnt/A30 -o allow_other,uid=1000,gid=1000,reconnect,cache=no'
-alias loadconda='source ~/miniconda3/etc/profile.d/conda.sh'
-alias r='radian'
-alias texInit='bash ~/CODE/scripts/texInit.sh'
-alias rnvim='$HOME/CODE/scripts/rnvim'
+
+if command -v radian &>/dev/null; then
+  alias r='radian'
+fi
+
+if command -v sshfs &>/dev/null; then
+  alias mount_a30='sshfs flyingbucket@A30:/home/flyingbucket /mnt/A30 -o allow_other,uid=1000,gid=1000,reconnect,cache=no'
+fi
+
+if [ -f "$HOME/CODE/scripts/texInit.sh" ]; then
+  alias texInit='bash $HOME/CODE/scripts/texInit.sh'
+fi
+
+if [ -f "$HOME/CODE/scripts/rnvim" ]; then
+  alias rnvim='$HOME/CODE/scripts/rnvim'
+fi

@@ -1,0 +1,60 @@
+# ~/.blerc
+
+# source bash-completion
+if [ -r /usr/share/bash-completion/bash_completion ]; then
+  source /usr/share/bash-completion/bash_completion
+elif [ -r /etc/profile.d/bash_completion.sh ]; then
+  source /etc/profile.d/bash_completion.sh
+fi
+
+# fzf compatiblity
+ble-import integration/fzf-completion
+ble-import integration/fzf-key-bindings
+
+# auto completion
+bleopt complete_auto_complete=1
+bleopt complete_auto_history=1
+bleopt complete_auto_delay=100
+
+_blerc_apply_theme() {
+  # --- 编辑与选中高亮 ---
+  ble-color-setface auto_complete             'fg=#555555,bg=none'      # 补全虚影
+  ble-color-setface region                    'bg=#2a2a2a,fg=#c1c1c1'   # 选区高亮
+  ble-color-setface prompt_status_line        'fg=#d4d1c8,bg=#2a2a2a'   # 状态栏
+
+  # --- 语法与命令高亮 ---
+  ble-color-setface syntax_default            'fg=#d4d1c8'              # 默认前景色
+  ble-color-setface syntax_command            'fg=#6f9bc9'              # 外部命令
+  ble-color-setface command_builtin           'fg=#b4a6d6'              # 内置命令 (cd, echo 等)
+  ble-color-setface command_alias             'fg=#9ad4a8'              # 别名
+  ble-color-setface command_function          'fg=#cbbaf2,bold'         # Shell 函数
+  ble-color-setface command_directory         'fg=#8fd0d0,underline'    # 路径命令
+
+  # --- 元素与符号 ---
+  ble-color-setface syntax_quoted             'fg=#c3cf88'              # 引号与字符串
+  ble-color-setface syntax_quotation          'fg=#c3cf88,bold'         # 引号标记
+  ble-color-setface syntax_escape             'fg=#b2e6e6'              # 转义字符 \n
+  ble-color-setface syntax_varname            'fg=#90b4e6'              # 变量名
+  ble-color-setface syntax_param_expansion    'fg=#8fd0d0'              # ${VAR} 参数展开
+  ble-color-setface syntax_comment            'fg=#555555'              # 注释
+  ble-color-setface syntax_error              'fg=#070b12,bg=#e5f08f,bold' # 语法错误
+
+  # --- Tab 菜单选择样式 ---
+  ble-color-setface menu_complete_selected    'bg=#2a2a2a,fg=#9ad4a8,bold'
+  ble-color-setface menu_complete_match       'fg=#e5f08f,bold'
+
+  # 路径参数 (如 ls CODE/xxx 中的 CODE/)
+  ble-color-setface filename_directory       'fg=#8fd0d0,underline'
+  ble-color-setface filename_directory_sticky 'fg=#8fd0d0,underline'
+  
+  # 直接作为命令执行的目录
+  ble-color-setface command_directory        'fg=#8fd0d0,underline'
+  
+  # 普通参数文件路径
+  ble-color-setface argument                 'fg=#d4d1c8'
+  # --- 按键绑定 ---
+  ble-bind -f 'TAB' 'auto_complete/insert-word || auto_complete/insert || complete'
+}
+
+# 3. 注册到 post-load 钩子，确保安全无错加载
+blehook/post-load _blerc_apply_theme

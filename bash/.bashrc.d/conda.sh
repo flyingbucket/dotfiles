@@ -1,16 +1,19 @@
-# THIS IS VERY SLOW !
+# --- Conda Lazy Loading ---
+if [ -d "$HOME/miniconda3" ] || [ -d "$HOME/anaconda3" ]; then
+  CONDA_ROOT=""
+  [ -d "$HOME/miniconda3" ] && CONDA_ROOT="$HOME/miniconda3"
+  [ -d "$HOME/anaconda3" ] && CONDA_ROOT="$HOME/anaconda3"
 
-# # >>> conda initialize >>>
-# # !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/home/flyingbucket/miniconda3/bin/conda' 'shell.bash' 'hook' 2>/dev/null)"
-# if [ $? -eq 0 ]; then
-#   eval "$__conda_setup"
-# else
-#   if [ -f "/home/flyingbucket/miniconda3/etc/profile.d/conda.sh" ]; then
-#     . "/home/flyingbucket/miniconda3/etc/profile.d/conda.sh"
-#   else
-#     export PATH="/home/flyingbucket/miniconda3/bin:$PATH"
-#   fi
-# fi
-# unset __conda_setup
-# # <<< conda initialize <<<
+  alias loadconda="source $CONDA_ROOT/etc/profile.d/conda.sh"
+
+  conda() {
+    unset -f conda
+    if [ -f "$CONDA_ROOT/etc/profile.d/conda.sh" ]; then
+      source "$CONDA_ROOT/etc/profile.d/conda.sh"
+      conda "$@"
+    else
+      echo "Conda profile.d script not found in $CONDA_ROOT" >&2
+      return 1
+    fi
+  }
+fi
