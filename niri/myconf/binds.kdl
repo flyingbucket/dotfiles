@@ -37,7 +37,11 @@ binds {
     Ctrl+Alt+Delete hotkey-overlay-title="Task Manager" {
         spawn "dms" "ipc" "call" "processlist" "focusOrToggle";
     }
-
+    
+    // === Widgets Controls ===
+    Mod+Alt+B hotkey-overlay-title="toogle Bar" {
+        spawn "dms" "ipc" "call" "bar" "toggle" "name" "Main Bar";
+    }
     // === Audio Controls ===
     XF86AudioRaiseVolume allow-when-locked=true {
         spawn "dms" "ipc" "call" "audio" "increment" "3";
