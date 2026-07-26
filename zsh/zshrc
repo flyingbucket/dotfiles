@@ -1,0 +1,47 @@
+HISTFILE=~/.zsh_history
+HISTSIZE=50000
+SAVEHIST=50000
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+
+# enable Tab completion menu
+autoload -U compinit && compinit
+
+# zsh-autosuggestions
+if [ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+    ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+    source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+    bindkey '^[OC' forward-char
+    bindkey '^F' forward-char
+fi
+
+# vim mode
+bindkey -v
+export KEYTIMEOUT=1
+
+# Menu Completion + Vim hjkl
+zmodload zsh/complist
+
+# TUI menu
+zstyle ':completion:*' menu select
+
+# Tab / Shift+Tab navigation in menu
+bindkey -M menuselect '^I' menu-complete
+bindkey -M menuselect '^[[Z' reverse-menu-complete
+
+# Vim motion in menu navigation
+bindkey -M menuselect 'h' backward-char
+bindkey -M menuselect 'j' down-line-or-history
+bindkey -M menuselect 'k' up-line-or-history
+bindkey -M menuselect 'l' forward-char
+bindkey -M menuselect '0' beginning-of-line
+bindkey -M menuselect '$' end-of-line
+bindkey -M menuselect '^M' accept-line
+
+# load shell config
+SHELL_CONFIG_DIR="$HOME/dotfiles/shell_config"
+if [ -d "$SHELL_CONFIG_DIR" ]; then
+    for file in "$SHELL_CONFIG_DIR"/*.sh; do
+        source "$file"
+    done
+fi
