@@ -1,0 +1,68 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+  . /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+  PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then
+  for rc in ~/.bashrc.d/*; do
+    if [ -f "$rc" ]; then
+      . "$rc"
+    fi
+  done
+fi
+unset rc
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/flyingbucket/miniconda3/bin/conda' 'shell.bash' 'hook' 2>/dev/null)"
+if [ $? -eq 0 ]; then
+  eval "$__conda_setup"
+else
+  if [ -f "/home/flyingbucket/miniconda3/etc/profile.d/conda.sh" ]; then
+    . "/home/flyingbucket/miniconda3/etc/profile.d/conda.sh"
+  else
+    export PATH="/home/flyingbucket/miniconda3/bin:$PATH"
+  fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+[ -f "/home/flyingbucket/.ghcup/env" ] && . "/home/flyingbucket/.ghcup/env" # ghcup-env
+. "$HOME/.cargo/env"
+
+export EDITOR=nvim
+export TMPDIR=/tmp
+
+export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+# 路径去重函数
+deduplicate_path() {
+  if [ -n "$PATH" ]; then
+    old_PATH=$PATH:
+    PATH=
+    while [ -n "$old_PATH" ]; do
+      x=${old_PATH%%:*} # 提取第一个路径
+      case $PATH: in
+      *:"$x":*) ;;        # 如果 PATH 中已存在，跳过
+      *) PATH=$PATH:$x ;; # 否则追加
+      esac
+      old_PATH=${old_PATH#*:}
+    done
+    PATH=${PATH#:}
+    export PATH
+  fi
+}
+
+# 执行去重
+deduplicate_path
