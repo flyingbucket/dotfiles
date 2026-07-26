@@ -6,9 +6,9 @@ if command -v starship &>/dev/null; then
 fi
 
 # fzf
-# if command -v fzf &>/dev/null; then
-# eval "$(fzf --bash)"
-# fi
+if command -v fzf &>/dev/null; then
+  eval "$(fzf --bash)"
+fi
 
 # thefuck
 if command -v thefuck &>/dev/null; then
