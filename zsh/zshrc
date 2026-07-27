@@ -7,14 +7,6 @@ setopt HIST_IGNORE_ALL_DUPS
 # enable Tab completion menu
 autoload -U compinit && compinit
 
-# zsh-autosuggestions
-if [ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-    ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-    source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-    bindkey '^[OC' forward-char
-    bindkey '^F' forward-char
-fi
-
 # vim mode
 bindkey -v
 export KEYTIMEOUT=1
@@ -23,7 +15,7 @@ export KEYTIMEOUT=1
 zmodload zsh/complist
 
 # TUI menu
-zstyle ':completion:*' menu select
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # Tab / Shift+Tab navigation in menu
 bindkey -M menuselect '^I' menu-complete
@@ -37,6 +29,53 @@ bindkey -M menuselect 'l' forward-char
 bindkey -M menuselect '0' beginning-of-line
 bindkey -M menuselect '$' end-of-line
 bindkey -M menuselect '^M' accept-line
+
+# auto detect plugin installation over distros
+source_first_found() {
+    for file in "$@"; do
+        if [ -f "$file" ]; then
+            source "$file"
+            return 0
+        fi
+    done
+    return 1
+}
+
+# zsh-autosuggestions
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+source_first_found \
+    "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" \
+    "/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh" \
+    "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+bindkey '^[OC' forward-char
+bindkey '^F' forward-char
+
+# zsh-syntax-highlighting
+source_first_found \
+    "$HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" \
+    "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" \
+    "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+# zsh-history-substring-search
+if source_first_found \
+    "$HOME/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh" \
+    "/usr/share/zsh-history-substring-search/zsh-history-substring-search.zsh" \
+    "/usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh"; then
+    # 绑定上下方向键，以及 Vim 模式下的 k/j 进行历史搜索
+    bindkey '^[[A' history-substring-search-up
+    bindkey '^[[B' history-substring-search-down
+    bindkey -M vicmd 'k' history-substring-search-up
+    bindkey -M vicmd 'j' history-substring-search-down
+fi
+
+# command-not-found
+# Fedora: PackageKit / DNF handler
+# Arch/CachyOS: pkgfile handler
+# Debian/Ubuntu: command-not-found handler
+source_first_found \
+    "/usr/libexec/pk-command-not-found" \
+    "/usr/share/doc/pkgfile/command-not-found.zsh" \
+    "/etc/zsh_command_not_found"
 
 # load shell config
 SHELL_CONFIG_DIR="$HOME/dotfiles/shell_config"
