@@ -7,7 +7,7 @@ binds {
     // === Application Launchers ===
     Mod+Return hotkey-overlay-title="Open Terminal" { spawn "ghostty"; }
     // Mod+B hotkey-overlay-title="Open Browser" { spawn "chrome-proxy.sh"; }
-    Mod+B hotkey-overlay-title="Open Browser" { spawn "google-chrome-stable"; }
+    Mod+B hotkey-overlay-title="Open Browser" { spawn "~/dotfiles/chrome_read_flags.sh"; }
     Mod+Space hotkey-overlay-title="Application Launcher" {
         // spawn "dms" "ipc" "call" "spotlight" "toggle";
         spawn "fuzzel";
