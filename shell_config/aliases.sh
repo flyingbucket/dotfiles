@@ -23,3 +23,7 @@ if command -v eza &>/dev/null; then
   alias lt='eza -aT --color=always --group-directories-first --icons=always' # tree listing
   alias l.="eza -a | grep -e '^\.'"                                          # show only dotfiles
 fi
+
+if command -v nvim &>/dev/null; then
+  export MANPAGER='nvim +Man!'
+fi
