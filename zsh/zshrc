@@ -68,14 +68,23 @@ if source_first_found \
     bindkey -M vicmd 'j' history-substring-search-down
 fi
 
-# command-not-found
-# Fedora: PackageKit / DNF handler
-# Arch/CachyOS: pkgfile handler
-# Debian/Ubuntu: command-not-found handler
-source_first_found \
-    "/usr/libexec/pk-command-not-found" \
-    "/usr/share/doc/pkgfile/command-not-found.zsh" \
-    "/etc/zsh_command_not_found"
+# Cross-distro command-not-found handler
+if [ -x "/usr/libexec/pk-command-not-found" ]; then
+    # Fedora / RHEL (PackageKit)
+    command_not_found_handler() {
+        /usr/libexec/pk-command-not-found "$@"
+    }
+    # 兼容部分将 handle 映射到 handler 的脚本或 Bash 移植习惯
+    command_not_found_handle() {
+        command_not_found_handler "$@"
+    }
+elif [ -f "/usr/share/doc/pkgfile/command-not-found.zsh" ]; then
+    # Arch / CachyOS (pkgfile)
+    source "/usr/share/doc/pkgfile/command-not-found.zsh"
+elif [ -f "/etc/zsh_command_not_found" ]; then
+    # Debian / Ubuntu
+    source "/etc/zsh_command_not_found"
+fi
 
 # load shell config
 SHELL_CONFIG_DIR="$HOME/dotfiles/shell_config"
