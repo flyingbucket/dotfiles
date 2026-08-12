@@ -30,8 +30,7 @@ shell-integration-features = cursor,sudo,title,no-cursor
 keybind = shift+enter=text:\n
 
 # auto attach to tmux
-# command = bash -c "tmux new-session ; exec bash"
-command = bash -c "tmux new-session -A -s main; exec bash"
+command = bash -c 'tmux new-session -A -s main; exec "${SHELL:-zsh}" -l'
 # Rando stuff
 gtk-single-instance = true
 
