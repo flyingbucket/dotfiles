@@ -1,0 +1,2 @@
+export KWANT_ENABLE=1
+export QT_KEYCHAIN_PROVIDER=kwallet
