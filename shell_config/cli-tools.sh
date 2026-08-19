@@ -21,4 +21,7 @@ if command -v thefuck &>/dev/null; then
   eval "$(thefuck --alias)"
 fi
 
+if command -v ty &>/dev/null; then
+  eval "$(ty generate-shell-completion $CURRENT_SHELL)"
+fi
 unset CURRENT_SHELL
