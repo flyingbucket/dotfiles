@@ -1,1 +1,2 @@
 spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
+spawn-at-startup "sh" "-c" "if [ -f /usr/lib/pam_kwallet_init ]; then /usr/lib/pam_kwallet_init; fi"
