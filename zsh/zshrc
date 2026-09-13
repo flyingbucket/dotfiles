@@ -93,4 +93,7 @@ if [ -d "$SHELL_CONFIG_DIR" ]; then
         source "$file"
     done
 fi
+
+export EDITOR=nvim
+
 . "$HOME/.local/bin/env"
