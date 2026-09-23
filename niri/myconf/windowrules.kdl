@@ -68,3 +68,10 @@ window-rule {
     match app-id="obsidian"
     default-column-width { proportion 1.0; }
 }
+
+window-rule {
+    match app-id=r"^neovide$"
+    match app-id=r"^google-chrome$"
+    open-maximized-to-edges false
+}
+
