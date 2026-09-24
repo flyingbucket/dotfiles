@@ -72,3 +72,17 @@ hl.bind(mainMod .. " + SHIFT + r", hl.dsp.layout("colresize -conf"))
 hl.bind(mainMod .. " + minus", hl.dsp.layout("colresize -0.1"))
 hl.bind(mainMod .. " + equal", hl.dsp.layout("colresize +0.1"))
 hl.bind(mainMod .. " + c", hl.dsp.layout("center"))
+
+-- ============================================================
+-- Overview
+-- ============================================================
+hl.bind("SUPER + D", hl.plugin.hymission.toggle)
+hl.bind("SUPER + CTRL + TAB", function()
+	hl.plugin.hymission.toggle("reverse")
+end)
+hl.bind("SUPER + C", function()
+	hl.plugin.hymission.toggle("onlycurrentworkspace")
+end)
+hl.bind("SUPER + A", function()
+	hl.plugin.hymission.toggle("forceall")
+end)
