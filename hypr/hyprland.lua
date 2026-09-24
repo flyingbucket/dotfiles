@@ -40,7 +40,7 @@ hl.config({
 
 		focus_fit_method = 1,
 		follow_focus = true,
-		follow_min_visible = 0.4,
+		follow_min_visible = 0,
 
 		wrap_focus = true,
 		wrap_swapcol = true,
@@ -50,8 +50,8 @@ hl.config({
 
 	decoration = {
 		rounding = 12,
-		active_opacity = 0.88,
-		inactive_opacity = 0.70,
+		active_opacity = 0.9,
+		inactive_opacity = 0.85,
 		shadow = {
 			enabled = true,
 			range = 30,
