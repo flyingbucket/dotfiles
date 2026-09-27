@@ -1,0 +1,50 @@
+# Icelandic Highlands
+# A dark programming theme inspired by:
+# volcanic rock, tundra moss, glaciers, fog and overcast Icelandic skies.
+
+# ─────────────────────────────────────────────
+# Base
+# ─────────────────────────────────────────────
+
+background = #111516
+foreground = #D8DEDC
+
+cursor-color = #B9E3E8
+
+selection-background = #34464A
+selection-foreground = #E7F0EE
+
+# ─────────────────────────────────────────────
+# ANSI 16-color palette
+#
+#   black      volcanic rock
+#   red        oxidized volcanic stone
+#   green      tundra moss
+#   yellow     muted mineral / lichen
+#   blue       glacier
+#   magenta    cold volcanic twilight
+#   cyan       glacial meltwater
+#   white      fog / snow
+# ─────────────────────────────────────────────
+
+# Normal
+
+palette = 0=#111516
+palette = 1=#A65353
+palette = 2=#66806A
+palette = 3=#A08D5D
+palette = 4=#5D8495
+palette = 5=#756B82
+palette = 6=#62939A
+palette = 7=#B8C1BE
+
+# Bright
+
+palette = 8=#596362
+palette = 9=#D47777
+palette = 10=#8FAF91
+palette = 11=#C3B37A
+palette = 12=#8CB7C9
+palette = 13=#9D91AC
+palette = 14=#8FC4C9
+palette = 15=#E3E9E6

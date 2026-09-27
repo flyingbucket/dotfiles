@@ -34,7 +34,8 @@ command = bash -c 'tmux new-session -A -s main; exec "${SHELL:-zsh}" -l'
 # Rando stuff
 gtk-single-instance = true
 
-theme = metal-archspire
+theme = icelandic-highland
+# theme = metal-archspire
 
 
 #key bindings
