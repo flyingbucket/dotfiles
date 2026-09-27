@@ -3,6 +3,8 @@ local mainMod = "SUPER"
 -- Optional per-user keybind overrides (managed by DMS). Loaded after default binds.
 hl.bind("SUPER + return", hl.dsp.exec_cmd("ghostty"))
 hl.bind("SUPER + Backspace", hl.dsp.window.close())
+hl.bind("SUPER + Backspace", hl.dsp.window.close())
+hl.bind("SUPER + B", hl.dsp.exec_cmd("google-chrome-stable"))
 
 -- ============================================================
 -- Focus Navigation
@@ -42,7 +44,7 @@ hl.bind(mainMod .. " + SHIFT + right", hl.dsp.layout("swapcol r"))
 -- Move to Workspace
 -- ============================================================
 
-hl.bind(mainMod .. " + SHIFT + j", hl.dsp.window.move({ workspace = "e+1" }))
+hl.bind(mainMod .. " + SHIFT + j", hl.dsp.window.move({ workspace = "r+1" }))
 hl.bind(mainMod .. " + SHIFT + k", hl.dsp.window.move({ workspace = "e-1" }))
 
 -- === Move to Numbered Workspaces ===
@@ -76,13 +78,17 @@ hl.bind(mainMod .. " + c", hl.dsp.layout("center"))
 -- ============================================================
 -- Overview
 -- ============================================================
-hl.bind("SUPER + D", hl.plugin.hymission.toggle)
-hl.bind("SUPER + CTRL + TAB", function()
-	hl.plugin.hymission.toggle("reverse")
+-- Toggle ScrollOverview with SUPER+g
+hl.bind("SUPER + D", function()
+	hl.plugin.scrolloverview.overview("toggle all")
 end)
-hl.bind("SUPER + C", function()
-	hl.plugin.hymission.toggle("onlycurrentworkspace")
-end)
-hl.bind("SUPER + A", function()
-	hl.plugin.hymission.toggle("forceall")
-end)
+-- hl.bind("SUPER + D", hl.plugin.hymission.toggle)
+-- hl.bind("SUPER + CTRL + TAB", function()
+-- 	hl.plugin.hymission.toggle("reverse")
+-- end)
+-- hl.bind("SUPER + C", function()
+-- 	hl.plugin.hymission.toggle("onlycurrentworkspace")
+-- end)
+-- hl.bind("SUPER + A", function()
+-- 	hl.plugin.hymission.toggle("forceall")
+-- end)
