@@ -1,4 +1,3 @@
--- .config/hypr/hyprland.lua
 hl.config({
 	plugin = {
 		scrolloverview = {
@@ -16,8 +15,3 @@ hl.config({
 		},
 	},
 })
-
--- Toggle ScrollOverview with SUPER+g
-hl.bind("SUPER + g", function()
-	hl.plugin.scrolloverview.overview("toggle all")
-end)
