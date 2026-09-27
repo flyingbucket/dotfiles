@@ -17,7 +17,7 @@ hl.bind(mainMod .. " + k", hl.dsp.layout("focus u"))
 -- Workspaces
 hl.bind(mainMod .. " + CTRL + j", hl.dsp.focus({ workspace = "r+1" }))
 hl.bind(mainMod .. " + CTRL + k", hl.dsp.focus({ workspace = "r-1" }))
-
+hl.bind(mainMod .. "+ U", hl.dsp.workspace.toggle_special({ name = "dashboard" }))
 -- === Numbered Workspaces ===
 hl.bind("SUPER + 1", hl.dsp.focus({ workspace = "1" }))
 hl.bind("SUPER + 2", hl.dsp.focus({ workspace = "2" }))

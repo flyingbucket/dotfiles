@@ -26,8 +26,8 @@ hl.config({
 		},
 	},
 	general = {
-		gaps_in = 5,
-		gaps_out = 5,
+		gaps_in = 10,
+		gaps_out = 10,
 		border_size = 2,
 		layout = "scrolling",
 	},
@@ -45,13 +45,20 @@ hl.config({
 		wrap_focus = true,
 		wrap_swapcol = true,
 
-		explicit_column_widths = "0.333, 0.5, 0.667, 1.0",
+		explicit_column_widths = "0.333, 0.5, 0.66,0.8, 1.0",
 	},
 
 	decoration = {
 		rounding = 12,
 		active_opacity = 0.9,
 		inactive_opacity = 0.85,
+		blur = {
+			enabled = true,
+			size = 10,
+			passes = 2,
+			new_optimizations = true,
+			ignore_opacity = true,
+		},
 		shadow = {
 			enabled = true,
 			range = 30,
@@ -86,3 +93,6 @@ require("myconf.binds-user")
 require("myconf.gesture")
 require("myconf.window_rule")
 require("myconf.layer_rule")
+
+-- HyprMod managed settings
+require("hyprland-gui")
