@@ -30,6 +30,9 @@ bindkey -M menuselect '0' beginning-of-line
 bindkey -M menuselect '$' end-of-line
 bindkey -M menuselect '^M' accept-line
 
+# deduplicate PATH before loading other .sh files
+typeset -U path PATH
+
 # auto detect plugin installation over distros
 source_first_found() {
     for file in "$@"; do
@@ -96,4 +99,4 @@ fi
 
 export EDITOR=nvim
 
-. "$HOME/.local/bin/env"
+export PATH=$HOME/.local/bin:$PATH
