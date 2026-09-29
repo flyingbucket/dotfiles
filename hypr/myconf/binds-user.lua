@@ -13,12 +13,12 @@ hl.bind("SUPER + B", hl.dsp.exec_cmd("google-chrome-stable"))
 -- Columns
 hl.bind(mainMod .. " + h", hl.dsp.layout("focus l"))
 hl.bind(mainMod .. " + l", hl.dsp.layout("focus r"))
-hl.bind(mainMod .. " + j", hl.dsp.layout("focus d"))
-hl.bind(mainMod .. " + k", hl.dsp.layout("focus u"))
+hl.bind(mainMod .. " + CTRL + j", hl.dsp.layout("focus d"))
+hl.bind(mainMod .. " + CTRL + k", hl.dsp.layout("focus u"))
 
 -- Workspaces
-hl.bind(mainMod .. " + CTRL + j", hl.dsp.focus({ workspace = "r+1" }))
-hl.bind(mainMod .. " + CTRL + k", hl.dsp.focus({ workspace = "r-1" }))
+hl.bind(mainMod .. " + j", hl.dsp.focus({ workspace = "r+1" }))
+hl.bind(mainMod .. " + k", hl.dsp.focus({ workspace = "r-1" }))
 hl.bind(mainMod .. "+ U", hl.dsp.workspace.toggle_special({ name = "dashboard" }))
 -- === Numbered Workspaces ===
 hl.bind("SUPER + 1", hl.dsp.focus({ workspace = "1" }))
