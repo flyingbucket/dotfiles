@@ -16,6 +16,9 @@ hl.config({
 		},
 	},
 	general = {
+		col = {
+			active_border = "0xfff6f5f4",
+		},
 		gaps_in = 10,
 		gaps_out = 10,
 		border_size = 2,
@@ -72,7 +75,7 @@ hl.config({
 	},
 })
 
-require("dms.colors")
+-- require("dms.colors")
 require("dms.outputs")
 require("dms.layout")
 require("dms.cursor")
