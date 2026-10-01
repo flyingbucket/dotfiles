@@ -9,7 +9,7 @@ hl.config({
 		-- empty inherits XKB_DEFAULT_LAYOUT (libxkbcommon), falls back to "us"
 		kb_layout = "",
 		numlock_by_default = true,
-		follow_mouse = 2,
+		follow_mouse = 1,
 		touchpad = {
 			tap_to_click = true,
 			natural_scroll = true,
@@ -85,6 +85,7 @@ require("myconf.animation")
 require("myconf.binds-user")
 require("myconf.gesture")
 require("myconf.layer_rule")
+require("myconf.monitor")
 require("myconf.plugin")
 require("myconf.window_rule")
 

@@ -4,7 +4,8 @@ local mainMod = "SUPER"
 hl.bind("SUPER + return", hl.dsp.exec_cmd("ghostty"))
 hl.bind("SUPER + Backspace", hl.dsp.window.close())
 hl.bind("SUPER + Backspace", hl.dsp.window.close())
-hl.bind("SUPER + B", hl.dsp.exec_cmd("google-chrome-stable"))
+hl.bind("SUPER + B", hl.dsp.exec_cmd("~/dotfiles/chrome_read_flags.sh"))
+hl.bind("SUPER + F", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
 
 -- ============================================================
 -- Focus Navigation
