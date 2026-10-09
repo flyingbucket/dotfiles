@@ -1,7 +1,7 @@
 local mainMod = "SUPER"
 
 -- Optional per-user keybind overrides (managed by DMS). Loaded after default binds.
-hl.bind("SUPER + return", hl.dsp.exec_cmd("ghostty"))
+hl.bind("SUPER + return", hl.dsp.exec_cmd("kitty"))
 hl.bind("SUPER + Backspace", hl.dsp.window.close())
 hl.bind("SUPER + Backspace", hl.dsp.window.close())
 hl.bind("SUPER + B", hl.dsp.exec_cmd("~/dotfiles/chrome_read_flags.sh"))
