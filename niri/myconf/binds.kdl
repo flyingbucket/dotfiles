@@ -5,7 +5,8 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // === Application Launchers ===
-    Mod+Return hotkey-overlay-title="Open Terminal" { spawn "ghostty"; }
+    // Mod+Return hotkey-overlay-title="Open Terminal" { spawn "ghostty"; }
+    Mod+Return hotkey-overlay-title="Open Terminal" { spawn "kitty"; }
     // Mod+B hotkey-overlay-title="Open Browser" { spawn "chrome-proxy.sh"; }
     Mod+B hotkey-overlay-title="Open Browser" { spawn "~/dotfiles/chrome_read_flags.sh"; }
     Mod+Space hotkey-overlay-title="Application Launcher" {
