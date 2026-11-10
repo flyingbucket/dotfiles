@@ -61,6 +61,7 @@ window-rule{
 }
 // set terminal column width to 1.0 on startup
 window-rule {
+    match app-id="kitty"
     match app-id="wezterm"
     match app-id="ghostty"
     match app-id="alacritty"
